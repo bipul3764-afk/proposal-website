@@ -1,374 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Sanchari ❤️</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #ffe6ea 0%, #ffccd5 100%);
-            color: #4a4a4a;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            text-align: center;
-            position: relative;
-        }
-
-        /* Top Header */
-        .couple-header {
-            position: fixed;
-            top: 20px;
-            left: 0;
-            right: 0;
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.5rem;
-            color: #ff4d6d;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-            z-index: 1000;
-            pointer-events: none;
-        }
-
-        /* Floating Hearts Background */
-        .floating-hearts-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .floating-heart {
-            position: absolute;
-            bottom: -10%;
-            font-size: 1.5rem;
-            color: rgba(255, 77, 109, 0.6);
-            animation: floatUp linear infinite;
-        }
-
-        @keyframes floatUp {
-            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
-        }
-
-        /* Container Styling */
-        .step-container {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
-            width: 90%;
-            max-width: 500px; /* Mobile friendly width */
-            padding: 40px 25px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(255, 77, 109, 0.15);
-            z-index: 10;
-            border: 2px solid #fff0f3;
-        }
-
-        .step-container.active {
-            display: block;
-            opacity: 1;
-        }
-
-        h1 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: #ff4d6d;
-            font-weight: 600;
-        }
-
-        p {
-            font-size: 1.1rem;
-            margin-bottom: 25px;
-            line-height: 1.6;
-            color: #666;
-        }
-
-        .btn-container {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        button {
-            background-color: #ff4d6d;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            font-size: 1.1rem;
-            border-radius: 25px;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.3);
-            transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            width: 100%;
-            max-width: 200px;
-        }
-
-        button:hover {
-            background-color: #c9184a;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.4);
-        }
-
-        .btn-secondary {
-            background-color: #ffb3c1;
-            color: #590d22;
-            box-shadow: 0 5px 15px rgba(255, 179, 193, 0.4);
-        }
-
-        .btn-secondary:hover {
-            background-color: #ff8fa3;
-        }
-
-        #noBtn {
-            background-color: #8d99ae;
-            box-shadow: 0 5px 15px rgba(141, 153, 174, 0.4);
-            position: relative;
-            z-index: 100;
-        }
-
-        .progress-bar-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background-color: #ffe6ea;
-            z-index: 1001;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background-color: #ff4d6d;
-            width: 0%;
-            transition: width 0.5s ease-in-out;
-            border-radius: 0 3px 3px 0;
-        }
-
-        .ring {
-            font-size: 4rem;
-            margin-top: 10px;
-            animation: popIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-            opacity: 0;
-            transform: scale(0);
-        }
-
-        @keyframes popIn {
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        /* Mobile specific adjustments */
-        @media (max-width: 480px) {
-            .couple-header { font-size: 2rem; top: 15px; }
-            h1 { font-size: 1.5rem; }
-            p { font-size: 1rem; }
-            .step-container { padding: 30px 20px; }
-            button { max-width: 100%; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bipul ❤️ Sanchari - Forever</title>
+<style>
+body{margin:0;font-family:Segoe UI,sans-serif;background:linear-gradient(135deg,#ff9ecf,#ffd6e8);overflow:hidden}
+.page{display:none;min-height:100vh;justify-content:center;align-items:center;padding:20px}
+.active{display:flex}
+.card{background:#fff;padding:35px;border-radius:25px;max-width:800px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.15)}
+h1{color:#ff4f8b}
+.btn{background:#ff4f8b;color:#fff;border:none;padding:14px 28px;border-radius:30px;cursor:pointer;margin:8px}
+.heart{position:fixed;top:-20px;animation:fall linear infinite}
+@keyframes fall{to{transform:translateY(110vh)}}
+</style>
 </head>
 <body>
 
-    <audio id="bgMusic" loop>
-        <source src="romantic-song.mp3" type="audio/mpeg">
-    </audio>
+<div id="p1" class="page active"><div class="card">
+<h1>Bipul ❤️ Sanchari</h1>
+<p>Welcome to a little journey of love.</p>
+<button class="btn" onclick="show('p2')">Start ❤️</button>
+</div></div>
 
-    <div class="couple-header">Bipul ❤️ Sanchari</div>
+<div id="p2" class="page"><div class="card">
+<h1>Our Story ✨</h1>
+<p>Waiting for our first meeting is still one of my favorite memories.</p>
+<button class="btn" onclick="show('p3')">Continue</button>
+</div></div>
 
-    <div class="progress-bar-container">
-        <div class="progress-bar" id="progress"></div>
-    </div>
+<div id="p3" class="page"><div class="card">
+<h1>Question 1 ❤️</h1>
+<p>Who is my favorite person?</p>
+<button class="btn" onclick="show('p4')">Sanchari ❤️</button>
+</div></div>
 
-    <div class="floating-hearts-container" id="heartsContainer"></div>
+<div id="p4" class="page"><div class="card">
+<h1>Question 2 🥰</h1>
+<p>Who makes my day brighter?</p>
+<button class="btn" onclick="show('p5')">You ❤️</button>
+</div></div>
 
-    <div id="step1" class="step-container active">
-        <h1>System Verification</h1>
-        <p>Welcome. Before we can proceed to the main dashboard, we need to verify a few undeniable facts.</p>
-        <button onclick="startExperience()">Begin Verification</button>
-    </div>
+<div id="p5" class="page"><div class="card">
+<h1>About You ❤️</h1>
+<p>You make ordinary days feel special. Your smile, care and presence mean so much to me.</p>
+<button class="btn" onclick="show('p6')">Continue</button>
+</div></div>
 
-    <div id="step2" class="step-container">
-        <h1>Fact #1: You are stunning.</h1>
-        <p>System analysis confirms that you are easily the most beautiful, radiant, and breathtaking person in the world.</p>
-        <button onclick="nextStep(3)">I accept this fact</button>
-    </div>
+<div id="p6" class="page"><div class="card">
+<h1>What I Love About You ✨</h1>
+<p>I love your smile, your kindness, your heart and the way you make me happy without even trying.</p>
+<button class="btn" onclick="show('p7')">Continue</button>
+</div></div>
 
-    <div id="step3" class="step-container">
-        <h1>Fact #2: You are brilliant.</h1>
-        <p>Scans show exceptionally high levels of intelligence, kindness, and an incredibly big heart. You make everything better.</p>
-        <button onclick="nextStep(4)">Next Fact</button>
-    </div>
+<div id="p7" class="page"><div class="card">
+<h1>Love Letter 💌</h1>
+<p>Dear Sanchari,<br><br>You are my happiness, my peace and my favorite person. Every moment with you is special.</p>
+<button class="btn" onclick="show('p8')">Continue ❤️</button>
+</div></div>
 
-    <div id="step4" class="step-container">
-        <h1>Fact #3: You are ridiculously patient.</h1>
-        <p>Because dealing with my nonsense, my bad jokes, and my crazy ideas every single day requires the patience of a literal saint.</p>
-        <button onclick="nextStep(5)">True 😂</button>
-    </div>
+<div id="p8" class="page"><div class="card">
+<h1>💍 My Proposal 💍</h1>
+<p>I don't want just today. I want every tomorrow with you. Will you stay by my side forever?</p>
+<button class="btn" onclick="show('p9')">Answer ❤️</button>
+</div></div>
 
-    <div id="step5" class="step-container">
-        <h1>Security Question 1</h1>
-        <p>When it is time for dinner, what is the mathematically correct response?</p>
-        <div class="btn-container">
-            <button class="btn-secondary" onclick="nextStep(6)">"I don't know, you pick."</button>
-            <button class="btn-secondary" onclick="nextStep(6)">"Whatever you want."</button>
-        </div>
-    </div>
+<div id="p9" class="page"><div class="card">
+<h1>❤️ One Last Question ❤️</h1>
+<p>Will you be my forever?</p>
+<button class="btn" onclick="yesAnswer()">YES ❤️</button>
+<button id="noBtn" class="btn">NO 😅</button>
+</div></div>
 
-    <div id="step6" class="step-container">
-        <h1>Security Question 2</h1>
-        <p>Are you fully prepared to let me steal the blankets during winter for the rest of eternity?</p>
-        <div class="btn-container">
-            <button onclick="nextStep(7)">Yes</button>
-            <button class="btn-secondary" onclick="nextStep(7)">No (But I'll do it anyway)</button>
-        </div>
-    </div>
+<script>
+function show(id){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
 
-    <div id="step7" class="step-container">
-        <h1>Verification Complete.</h1>
-        <p>There is only one final question required to lock in this partnership permanently.</p>
-        <p><strong style="color: #c9184a; font-size: 1.3rem;">Sanchari, will you marry me?</strong></p>
-        <div class="btn-container" style="min-height: 50px; position: relative; display: block;">
-            <button id="yesBtn" onclick="triggerYes()" style="margin-bottom: 10px;">YES!</button>
-            <button id="noBtn" onmouseover="moveNoButton()" onclick="moveNoButton()">No</button>
-        </div>
-    </div>
+for(let i=0;i<50;i++){
+let h=document.createElement('div');
+h.className='heart';
+h.innerHTML='❤️';
+h.style.left=Math.random()*100+'vw';
+h.style.fontSize=(15+Math.random()*20)+'px';
+h.style.animation='fall '+(3+Math.random()*5)+'s linear infinite';
+document.body.appendChild(h);
+}
 
-    <div id="step8" class="step-container">
-        <h1>SHE SAID YES! 🎉</h1>
-        <p>Player 2 locked in forever. Turn around, I'm right behind you.</p>
-        <div class="ring">💍</div>
-    </div>
+document.addEventListener('mousemove',()=>{
+const n=document.getElementById('noBtn');
+if(!n) return;
+n.onmouseover=()=>{
+n.style.position='fixed';
+n.style.left=Math.random()*(window.innerWidth-150)+'px';
+n.style.top=Math.random()*(window.innerHeight-80)+'px';
+};
+});
 
-    <script>
-        const totalSteps = 8;
-
-        // Function to start music and proceed to step 2
-        function startExperience() {
-            const music = document.getElementById('bgMusic');
-            music.volume = 0.5; // Set volume to 50%
-            music.play().catch(e => console.log("Audio play prevented by browser"));
-            nextStep(2);
-        }
-
-        // Logic to move between steps
-        function nextStep(stepNumber) {
-            // Update progress bar
-            const progressPercentage = ((stepNumber - 1) / (totalSteps - 1)) * 100;
-            document.getElementById('progress').style.width = progressPercentage + '%';
-
-            // Hide all steps
-            const allSteps = document.querySelectorAll('.step-container');
-            allSteps.forEach(step => {
-                step.classList.remove('active');
-                setTimeout(() => {
-                    step.style.display = 'none';
-                }, 400); 
-            });
-
-            // Show the next step
-            setTimeout(() => {
-                const nextStepElement = document.getElementById('step' + stepNumber);
-                nextStepElement.style.display = 'block';
-                setTimeout(() => {
-                    nextStepElement.classList.add('active');
-                }, 50);
-            }, 400);
-        }
-
-        // Function triggered when YES is clicked
-        function triggerYes() {
-            nextStep(8);
-            shootConfetti();
-        }
-
-        // Confetti effect using Canvas Confetti CDN
-        function shootConfetti() {
-            var duration = 3000;
-            var end = Date.now() + duration;
-
-            (function frame() {
-                confetti({
-                    particleCount: 5,
-                    angle: 60,
-                    spread: 55,
-                    origin: { x: 0 },
-                    colors: ['#ff4d6d', '#ffb3c1', '#ffffff']
-                });
-                confetti({
-                    particleCount: 5,
-                    angle: 120,
-                    spread: 55,
-                    origin: { x: 1 },
-                    colors: ['#ff4d6d', '#ffb3c1', '#ffffff']
-                });
-
-                if (Date.now() < end) {
-                    requestAnimationFrame(frame);
-                }
-            }());
-        }
-
-        // The running "No" button logic
-        function moveNoButton() {
-            const noBtn = document.getElementById('noBtn');
-            
-            noBtn.style.position = 'fixed';
-            
-            const windowWidth = window.innerWidth;
-            const windowHeight = window.innerHeight;
-            const btnWidth = noBtn.offsetWidth;
-            const btnHeight = noBtn.offsetHeight;
-
-            // Generate random coordinates keeping the button in bounds
-            const randomX = Math.max(20, Math.floor(Math.random() * (windowWidth - btnWidth - 40)));
-            const randomY = Math.max(100, Math.floor(Math.random() * (windowHeight - btnHeight - 100))); // keep it below header
-
-            noBtn.style.left = randomX + 'px';
-            noBtn.style.top = randomY + 'px';
-        }
-
-        // Generate Floating Hearts randomly
-        function createHearts() {
-            const container = document.getElementById('heartsContainer');
-            const heartCount = 20; // Number of floating hearts at any time
-
-            for (let i = 0; i < heartCount; i++) {
-                let heart = document.createElement('div');
-                heart.classList.add('floating-heart');
-                heart.innerHTML = '❤️';
-                
-                // Randomize horizontal position, size, and animation duration
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = (Math.random() * 5 + 5) + 's'; // 5s to 10s
-                heart.style.animationDelay = (Math.random() * 5) + 's';
-                heart.style.fontSize = (Math.random() * 1 + 1) + 'rem'; // 1rem to 2rem
-                
-                container.appendChild(heart);
-            }
-        }
-
-        // Initialize hearts on page load
-        window.onload = createHearts;
-    </script>
+function yesAnswer(){
+document.body.innerHTML=`<div style="display:flex;height:100vh;justify-content:center;align-items:center;text-align:center;background:linear-gradient(135deg,#ff9ecf,#ffd6e8)"><div><h1>🎉 SHE SAID YES! 🎉</h1><h2>Bipul ❤️ Sanchari</h2><p>This is the beginning of our beautiful forever. I Love You ❤️</p></div></div>`;
+}
+</script>
 </body>
 </html>
