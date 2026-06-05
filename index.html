@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Special Surprise ❤️</title>
+<title>For Someone Special ❤️</title>
 
 <style>
 *{
@@ -32,9 +32,262 @@ body{
     box-shadow:0 10px 30px rgba(0,0,0,.15);
 }
 
+.page{
+    display:none;
+}
+
+.active{
+    display:block;
+}
+
 h1{
     color:#ff4f8b;
-    margin-bottom:15px;
+    margin-bottom:20px;
+}
+
+p{
+    color:#555;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+.btn{
+    background:#ff4f8b;
+    color:white;
+    border:none;
+    padding:14px 28px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+.memory{
+    background:#fff3f8;
+    padding:15px;
+    border-radius:15px;
+    margin:12px 0;
+}
+
+#yesBtn{
+    background:#ff4f8b;
+    color:white;
+    border:none;
+    padding:15px 30px;
+    border-radius:30px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+#noBtn{
+    background:#777;
+    color:white;
+    border:none;
+    padding:15px 30px;
+    border-radius:30px;
+    font-size:18px;
+    cursor:pointer;
+    margin-left:10px;
+}
+
+.heart{
+    position:fixed;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-100px);
+    }
+    to{
+        transform:translateY(110vh);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="page1" class="page active">
+<h1>Hello Beautiful ❤️</h1>
+<p>
+I have a little surprise for you...
+Take this journey with me.
+</p>
+<button class="btn" onclick="nextPage(2)">
+Start ✨
+</button>
+</div>
+
+<div id="page2" class="page">
+<h1>Things I Like About You ❤️</h1>
+
+<div class="memory">
+😊 Your smile makes my day better.
+</div>
+
+<div class="memory">
+🌸 Talking to you never feels boring.
+</div>
+
+<div class="memory">
+❤️ You became very special to me.
+</div>
+
+<button class="btn" onclick="nextPage(3)">
+Continue
+</button>
+</div>
+
+<div id="page3" class="page">
+<h1>Quick Quiz 😌</h1>
+
+<p>Who makes my day brighter?</p>
+
+<button class="btn" onclick="nextPage(4)">
+You ❤️
+</button>
+</div>
+
+<div id="page4" class="page">
+<h1>A Small Letter 💌</h1>
+
+<p>
+You entered my life unexpectedly,
+but became someone I care about deeply.
+
+Every conversation,
+every smile,
+every little moment with you
+has become special to me.
+
+And now I want to ask you something...
+</p>
+
+<button class="btn" onclick="nextPage(5)">
+Reveal ❤️
+</button>
+</div>
+
+<div id="page5" class="page">
+
+<h1>Will You Be My Girlfriend? ❤️</h1>
+
+<p>
+You make my world brighter every day.
+I would love to create beautiful memories with you.
+</p>
+
+<button id="yesBtn" onclick="accepted()">
+YES ❤️
+</button>
+
+<button id="noBtn">
+NO 😅
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+function nextPage(page){
+    document.querySelectorAll('.page').forEach(p=>{
+        p.classList.remove('active');
+    });
+
+    document.getElementById('page'+page).classList.add('active');
+}
+
+let attempts = 0;
+
+const noBtn = document.getElementById("noBtn");
+
+function moveButton(){
+
+    attempts++;
+
+    const messages = [
+        "No 😅",
+        "Are You Sure? 🤔",
+        "Think Again ❤️",
+        "Wrong Button 😂",
+        "Try YES 😍",
+        "Come On ❤️"
+    ];
+
+    if(attempts < messages.length){
+        noBtn.innerHTML = messages[attempts];
+    }
+
+    const maxX = window.innerWidth - 150;
+    const maxY = window.innerHeight - 80;
+
+    noBtn.style.position = "fixed";
+    noBtn.style.left = Math.random()*maxX + "px";
+    noBtn.style.top = Math.random()*maxY + "px";
+}
+
+noBtn.addEventListener("mouseover", moveButton);
+noBtn.addEventListener("touchstart", moveButton);
+
+function accepted(){
+
+    document.body.innerHTML = `
+    <div style="
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    text-align:center;
+    background:linear-gradient(135deg,#ff9ecf,#ffd6e8);
+    ">
+
+    <h1 style="font-size:60px;color:#ff4f8b;">
+    🎉 She Said YES! 🎉
+    </h1>
+
+    <h2 style="margin-top:20px;">
+    ❤️ Officially Us ❤️
+    </h2>
+
+    <p style="font-size:22px;margin-top:20px;">
+    Thank you for making me the happiest person.
+    </p>
+
+    <h3 style="margin-top:20px;">
+    ❤️ Forever Starts Today ❤️
+    </h3>
+
+    </div>
+    `;
+}
+
+for(let i=0;i<35;i++){
+
+    let heart=document.createElement("div");
+
+    heart.className="heart";
+    heart.innerHTML="❤️";
+
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(15+Math.random()*25)+"px";
+    heart.style.animationDuration=(3+Math.random()*6)+"s";
+
+    document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>    margin-bottom:15px;
 }
 
 p{
