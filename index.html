@@ -1,106 +1,173 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bipul ❤️ Sanchari - Forever</title>
+<title>Bipul ❤️ Sanchari</title>
+
 <style>
-body{margin:0;font-family:Segoe UI,sans-serif;background:linear-gradient(135deg,#ff9ecf,#ffd6e8);overflow:hidden}
-.page{display:none;min-height:100vh;justify-content:center;align-items:center;padding:20px}
-.active{display:flex}
-.card{background:#fff;padding:35px;border-radius:25px;max-width:800px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.15)}
-h1{color:#ff4f8b}
-.btn{background:#ff4f8b;color:#fff;border:none;padding:14px 28px;border-radius:30px;cursor:pointer;margin:8px}
-.heart{position:fixed;top:-20px;animation:fall linear infinite}
-@keyframes fall{to{transform:translateY(110vh)}}
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff9ecf,#ffd6e8);
+font-family:Arial,sans-serif;
+overflow:hidden;
+}
+
+.card{
+background:white;
+padding:40px;
+border-radius:25px;
+text-align:center;
+max-width:650px;
+width:90%;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+h1{
+color:#ff4f8b;
+}
+
+button{
+padding:14px 28px;
+border:none;
+border-radius:30px;
+font-size:18px;
+cursor:pointer;
+margin:10px;
+}
+
+#yesBtn{
+background:#ff4f8b;
+color:white;
+}
+
+#noBtn{
+background:#777;
+color:white;
+}
+
+.heart{
+position:fixed;
+top:-20px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh);
+}
+}
 </style>
 </head>
+
 <body>
 
-<div id="p1" class="page active"><div class="card">
-<h1>Bipul ❤️ Sanchari</h1>
-<p>Welcome to a little journey of love.</p>
-<button class="btn" onclick="show('p2')">Start ❤️</button>
-</div></div>
+<div class="card">
 
-<div id="p2" class="page"><div class="card">
-<h1>Our Story ✨</h1>
-<p>Waiting for our first meeting is still one of my favorite memories.</p>
-<button class="btn" onclick="show('p3')">Continue</button>
-</div></div>
+<h1>❤️ My Proposal ❤️</h1>
 
-<div id="p3" class="page"><div class="card">
-<h1>Question 1 ❤️</h1>
-<p>Who is my favorite person?</p>
-<button class="btn" onclick="show('p4')">Sanchari ❤️</button>
-</div></div>
+<p style="font-size:20px;line-height:1.8;">
 
-<div id="p4" class="page"><div class="card">
-<h1>Question 2 🥰</h1>
-<p>Who makes my day brighter?</p>
-<button class="btn" onclick="show('p5')">You ❤️</button>
-</div></div>
+Dear Sanchari,
 
-<div id="p5" class="page"><div class="card">
-<h1>About You ❤️</h1>
-<p>You make ordinary days feel special. Your smile, care and presence mean so much to me.</p>
-<button class="btn" onclick="show('p6')">Continue</button>
-</div></div>
+You are my happiness,
+my peace,
+and my favorite person.
 
-<div id="p6" class="page"><div class="card">
-<h1>What I Love About You ✨</h1>
-<p>I love your smile, your kindness, your heart and the way you make me happy without even trying.</p>
-<button class="btn" onclick="show('p7')">Continue</button>
-</div></div>
+Waiting for our first meeting
+is still one of my favorite memories.
 
-<div id="p7" class="page"><div class="card">
-<h1>Love Letter 💌</h1>
-<p>Dear Sanchari,<br><br>You are my happiness, my peace and my favorite person. Every moment with you is special.</p>
-<button class="btn" onclick="show('p8')">Continue ❤️</button>
-</div></div>
+Every conversation with you
+became special to me.
 
-<div id="p8" class="page"><div class="card">
-<h1>💍 My Proposal 💍</h1>
-<p>I don't want just today. I want every tomorrow with you. Will you stay by my side forever?</p>
-<button class="btn" onclick="show('p9')">Answer ❤️</button>
-</div></div>
+I don't want just today.
 
-<div id="p9" class="page"><div class="card">
-<h1>❤️ One Last Question ❤️</h1>
-<p>Will you be my forever?</p>
-<button class="btn" onclick="yesAnswer()">YES ❤️</button>
-<button id="noBtn" class="btn">NO 😅</button>
-</div></div>
+I want every tomorrow with you.
+
+Will you stay by my side forever?
+
+❤️
+
+</p>
+
+<button id="yesBtn">
+YES ❤️
+</button>
+
+<button id="noBtn">
+NO 😅
+</button>
+
+</div>
 
 <script>
-function show(id){
-document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-document.getElementById(id).classList.add('active');
+
+for(let i=0;i<40;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(15+Math.random()*25)+"px";
+heart.style.animationDuration=(3+Math.random()*5)+"s";
+
+document.body.appendChild(heart);
 }
 
-for(let i=0;i<50;i++){
-let h=document.createElement('div');
-h.className='heart';
-h.innerHTML='❤️';
-h.style.left=Math.random()*100+'vw';
-h.style.fontSize=(15+Math.random()*20)+'px';
-h.style.animation='fall '+(3+Math.random()*5)+'s linear infinite';
-document.body.appendChild(h);
+const noBtn=document.getElementById("noBtn");
+
+function moveButton(){
+
+noBtn.style.position="fixed";
+
+noBtn.style.left=
+Math.random()*(window.innerWidth-150)+"px";
+
+noBtn.style.top=
+Math.random()*(window.innerHeight-80)+"px";
 }
 
-document.addEventListener('mousemove',()=>{
-const n=document.getElementById('noBtn');
-if(!n) return;
-n.onmouseover=()=>{
-n.style.position='fixed';
-n.style.left=Math.random()*(window.innerWidth-150)+'px';
-n.style.top=Math.random()*(window.innerHeight-80)+'px';
+noBtn.addEventListener("mouseover",moveButton);
+noBtn.addEventListener("touchstart",moveButton);
+
+document.getElementById("yesBtn").onclick=function(){
+
+document.body.innerHTML=`
+
+<div style="
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(135deg,#ff9ecf,#ffd6e8);
+flex-direction:column;
+">
+
+<h1 style="color:#ff4f8b;font-size:60px;">
+❤️ I Love You ❤️
+</h1>
+
+<h2>
+Bipul ❤️ Sanchari
+</h2>
+
+<p style="font-size:22px;">
+Forever Together 🥰
+</p>
+
+</div>
+
+`;
 };
-});
 
-function yesAnswer(){
-document.body.innerHTML=`<div style="display:flex;height:100vh;justify-content:center;align-items:center;text-align:center;background:linear-gradient(135deg,#ff9ecf,#ffd6e8)"><div><h1>🎉 SHE SAID YES! 🎉</h1><h2>Bipul ❤️ Sanchari</h2><p>This is the beginning of our beautiful forever. I Love You ❤️</p></div></div>`;
-}
 </script>
+
 </body>
 </html>
