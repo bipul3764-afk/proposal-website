@@ -1,143 +1,177 @@
-<div class="card">
+<!-- PREMIUM PROPOSAL BUTTONS -->
 
-<h1>❤️ Oii Sanchari (Bou) ❤️</h1>
+<button id="yesBtn" class="btn">YES ❤️</button>
+<button id="noBtn" class="btn">NO 😅</button>
 
-<p style="font-size:20px;line-height:1.9;">
+<audio id="clickSound">
+<source src="https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3" type="audio/mpeg">
+</audio>
 
-I'm still waiting for our first meeting...
+<style>
 
-At this point, I genuinely deserve an award for patience.
-😌🏆
+#yesBtn{
+background:#ff4f8b;
+color:white;
+padding:15px 35px;
+font-size:22px;
+border:none;
+border-radius:40px;
+cursor:pointer;
+transition:.3s;
+}
 
-The funny thing is, the moment I met you online,
-I started liking you.
+#yesBtn:hover{
+transform:scale(1.1);
+box-shadow:0 0 30px #ff4f8b;
+}
 
-Not because of your looks.
-Not because of your body.
-Not because of anything superficial.
+#noBtn{
+background:#777;
+color:white;
+padding:15px 35px;
+font-size:22px;
+border:none;
+border-radius:40px;
+cursor:pointer;
+margin-left:10px;
+}
 
-Honestly?
+.confetti{
+position:fixed;
+font-size:25px;
+pointer-events:none;
+animation:explode 3s linear forwards;
+}
 
-I still don't know exactly why.
+@keyframes explode{
 
-Maybe it was your vibe.
+0%{
+opacity:1;
+transform:translateY(0) scale(1);
+}
 
-Maybe it was the way you talk.
+100%{
+opacity:0;
+transform:translateY(-500px) rotate(720deg) scale(2);
+}
+}
 
-Maybe it was how effortlessly you became the person I wanted to share every little thing with.
+.flash{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:white;
+animation:flash .6s forwards;
+pointer-events:none;
+}
 
-All I know is that somewhere between our conversations,
-my heart made a decision long before my brain could even vote.
-😅
+@keyframes flash{
 
-You've become my favorite notification,
+0%{
+opacity:1;
+}
 
-my favorite distraction,
+100%{
+opacity:0;
+}
+}
 
-and sometimes the reason I smile at my phone like a complete idiot in public.
+.typewriter{
+overflow:hidden;
+white-space:nowrap;
+border-right:3px solid #ff4f8b;
+animation:
+typing 4s steps(40,end),
+blink .8s infinite;
+}
 
-And trust me...
+@keyframes typing{
+from{width:0}
+to{width:100%}
+}
 
-that's very embarrassing.
-😂
+@keyframes blink{
+50%{
+border-color:transparent;
+}
+}
 
-I haven't even met you in person yet,
-
-but somehow you already feel familiar,
-
-comfortable,
-
-safe,
-
-and important.
-
-That's rare.
-
-So here's my question...
-
-❤️
-
-Can you stay with me forever? ♾️
-
-Through the good days,
-
-the bad days,
-
-the lazy days,
-
-the overthinking days,
-
-and especially through the days when I steal your food and still confidently say...
-
-"I didn't take anything."
-😌
-
-Will you stay by my side,
-
-laugh with me,
-
-fight with me,
-
-annoy me,
-
-forgive me,
-
-and create a lifetime of beautiful memories together?
-
-💍❤️
-
-</p>
-
-<button id="yesBtn">
-YES ❤️
-</button>
-
-<button id="noBtn">
-NO 😅
-</button>
-
-</div>
+</style>
 
 <script>
 
-const noBtn = document.getElementById("noBtn");
-
-function moveButton(){
-
-const maxX =
-window.innerWidth - 150;
-
-const maxY =
-window.innerHeight - 80;
-
-noBtn.style.position = "fixed";
-
-noBtn.style.left =
-Math.random() * maxX + "px";
-
-noBtn.style.top =
-Math.random() * maxY + "px";
-
-const texts = [
+let texts=[
 "NO 😅",
 "Think Again 😘",
 "Wrong Button 😂",
 "Nice Try 😜",
-"Try YES ❤️",
-"Impossible 😌"
+"Impossible 😌",
+"Just Press YES ❤️"
 ];
 
-noBtn.innerHTML =
-texts[Math.floor(Math.random()*texts.length)];
+let index=0;
+
+const noBtn=document.getElementById("noBtn");
+
+function moveButton(){
+
+const maxX=window.innerWidth-150;
+const maxY=window.innerHeight-80;
+
+noBtn.style.position="fixed";
+
+noBtn.style.left=
+Math.random()*maxX+"px";
+
+noBtn.style.top=
+Math.random()*maxY+"px";
+
+noBtn.innerHTML=texts[index];
+
+if(index<texts.length-1){
+index++;
+}
 }
 
-noBtn.addEventListener("mouseover", moveButton);
-noBtn.addEventListener("touchstart", moveButton);
+noBtn.addEventListener("mouseover",moveButton);
+noBtn.addEventListener("touchstart",moveButton);
 
-document.getElementById("yesBtn").onclick =
-function(){
+document.getElementById("yesBtn").onclick=function(){
 
-document.body.innerHTML = `
+document.getElementById("clickSound").play();
+
+let flash=document.createElement("div");
+
+flash.className="flash";
+
+document.body.appendChild(flash);
+
+for(let i=0;i<120;i++){
+
+let c=document.createElement("div");
+
+c.className="confetti";
+
+c.innerHTML=
+["❤️","💖","💍","✨","🌹","🎉"]
+[Math.floor(Math.random()*6)];
+
+c.style.left=Math.random()*100+"vw";
+
+c.style.top=Math.random()*100+"vh";
+
+document.body.appendChild(c);
+
+setTimeout(()=>{
+c.remove();
+},3000);
+}
+
+setTimeout(()=>{
+
+document.body.innerHTML=`
 
 <div style="
 height:100vh;
@@ -147,35 +181,59 @@ align-items:center;
 flex-direction:column;
 text-align:center;
 background:linear-gradient(135deg,#ff9ecf,#ffd6e8);
-font-family:'Segoe UI',sans-serif;
+padding:20px;
 ">
 
 <h1 style="
-font-size:60px;
+font-size:75px;
 color:#ff4f8b;
 ">
-🎉 SHE SAID YES! 🎉
+🎉 SHE SAID YES 🎉
 </h1>
 
 <h2>
-❤️ Bipul & Sanchari ❤️
+❤️ Bipul ♾️ Sanchari ❤️
 </h2>
 
-<p style="
-font-size:24px;
-max-width:700px;
-padding:20px;
+<p class="typewriter"
+style="
+font-size:26px;
+color:#444;
+margin-top:25px;
 ">
-This is not the end of our story...
 
-It's the beginning of our beautiful forever.
+Mission: Grow Old Together 🥰
 
-♾️❤️
+</p>
+
+<p style="
+font-size:22px;
+margin-top:40px;
+max-width:700px;
+line-height:1.8;
+">
+
+The wait was worth it.
+
+The conversations were worth it.
+
+You were worth it.
+
+Today.
+
+Tomorrow.
+
+Forever.
+
+❤️
+
 </p>
 
 </div>
 
 `;
+
+},1000);
 };
 
 </script>
