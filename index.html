@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Special Surprise ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#ff9ecf,#ffd6e8);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+.container{
+    width:90%;
+    max-width:700px;
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+h1{
+    color:#ff4f8b;
+    margin-bottom:15px;
+}
+
+p{
+    color:#555;
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+.btn{
+    background:#ff4f8b;
+    color:white;
+    border:none;
+    padding:14px 28px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:16px;
+    margin-top:15px;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+.page{
+    display:none;
+}
+
+.active{
+    display:block;
+}
+
+.memory{
+    background:#fff3f8;
+    padding:15px;
+    border-radius:15px;
+    margin:10px 0;
+}
+
+.heart{
+    position:fixed;
+    color:#ff4f8b;
+    animation:fall 5s linear infinite;
+}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-100px);
+    }
+    100%{
+        transform:translateY(110vh);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="page1" class="page active">
+<h1>Hello Beautiful ❤️</h1>
+<p>
+I made something special for you.
+Take a little journey with me...
+</p>
+<button class="btn" onclick="nextPage(2)">Start</button>
+</div>
+
+<div id="page2" class="page">
+<h1>Our Little Story ✨</h1>
+
+<div class="memory">
+❤️ Every conversation with you became my favorite part of the day.
+</div>
+
+<div class="memory">
+😊 Your smile can instantly improve my mood.
+</div>
+
+<div class="memory">
+🌸 You became someone very special to me.
+</div>
+
+<button class="btn" onclick="nextPage(3)">Continue</button>
+</div>
+
+<div id="page3" class="page">
+<h1>One Question 😌</h1>
+
+<p>
+Who makes my day brighter?
+</p>
+
+<button class="btn" onclick="nextPage(4)">
+You ❤️
+</button>
+</div>
+
+<div id="page4" class="page">
+<h1>An Open Letter 💌</h1>
+
+<p>
+You entered my life unexpectedly,
+but somehow became one of the most important parts of it.
+
+I love talking to you,
+thinking about you,
+and imagining beautiful moments with you.
+
+And now there's something I've wanted to ask...
+</p>
+
+<button class="btn" onclick="nextPage(5)">
+Reveal ❤️
+</button>
+</div>
+
+<div id="page5" class="page">
+<h1>Will You Be My Girlfriend? ❤️</h1>
+
+<p>
+You make my world brighter every day.
+I'd love to create countless memories together.
+</p>
+
+<button class="btn" onclick="accepted()">
+YES ❤️
+</button>
+</div>
+
+</div>
+
+<script>
+
+function nextPage(page){
+    document.querySelectorAll('.page').forEach(p=>{
+        p.classList.remove('active');
+    });
+
+    document.getElementById('page'+page).classList.add('active');
+}
+
+function accepted(){
+    document.body.innerHTML=`
+    <div style="
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    flex-direction:column;
+    text-align:center;
+    background:linear-gradient(135deg,#ff9ecf,#ffd6e8);">
+
+    <h1 style="font-size:55px;color:#ff4f8b;">
+    🎉 She Said Yes! 🎉
+    </h1>
+
+    <h2 style="margin-top:20px;">
+    ❤️ Officially Us ❤️
+    </h2>
+
+    <p style="margin-top:20px;font-size:20px;">
+    Thank you for making me the happiest person.
+    </p>
+
+    </div>
+    `;
+}
+
+for(let i=0;i<25;i++){
+    let heart=document.createElement("div");
+    heart.innerHTML="❤️";
+    heart.className="heart";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(15+Math.random()*25)+"px";
+    heart.style.animationDuration=(3+Math.random()*5)+"s";
+    document.body.appendChild(heart);
+}
+
+</script>
+
+</body>
+</html>
