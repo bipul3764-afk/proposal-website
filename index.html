@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Oii Sanchari ❤️</title>
+<title>For My Sona ❤️</title>
 
 <style>
 
@@ -19,108 +19,107 @@ height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-background:linear-gradient(
-135deg,
-#ff9ecf,
-#ffd6e8,
-#fff0f6
-);
+background:linear-gradient(135deg,#ff9ecf,#ffd6e8,#fff5fa);
 overflow:hidden;
-padding:20px;
 }
 
 .card{
-position:relative;
 
-width:100%;
-max-width:850px;
+width:90%;
+max-width:700px;
 
-padding:45px;
+padding:50px;
 
 text-align:center;
 
 background:rgba(255,255,255,.25);
 
-backdrop-filter:blur(20px);
-
-border:1px solid rgba(255,255,255,.4);
+backdrop-filter:blur(15px);
 
 border-radius:30px;
 
 box-shadow:
-0 15px 35px rgba(255,79,139,.2);
+0 15px 40px rgba(255,79,139,.25);
+
+animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-12px);
+}
 }
 
 h1{
-font-size:52px;
+
+font-size:58px;
 color:#ff4f8b;
-margin-bottom:15px;
+
+margin-bottom:20px;
+
+text-shadow:
+0 0 20px rgba(255,79,139,.4);
 }
 
-.subtitle{
-font-size:18px;
-color:#ff4f8b;
-margin-bottom:25px;
-}
+.message{
 
-.text{
-font-size:20px;
-line-height:1.9;
+font-size:28px;
+
+line-height:1.8;
+
 color:#444;
 }
 
-.buttons{
-position:relative;
-height:120px;
+#yesBtn{
+
 margin-top:35px;
-}
 
-#yesBtn,
-#noBtn{
+padding:18px 45px;
 
-padding:16px 38px;
+font-size:24px;
 
 border:none;
 
 border-radius:50px;
 
-font-size:22px;
-
-cursor:pointer;
-
-transition:.3s;
-}
-
-#yesBtn{
 background:linear-gradient(
 135deg,
 #ff4f8b,
 #ff77a9
 );
+
 color:white;
-box-shadow:0 10px 25px rgba(255,79,139,.4);
+
+cursor:pointer;
+
+box-shadow:
+0 10px 30px rgba(255,79,139,.4);
+
+transition:.3s;
 }
 
 #yesBtn:hover{
-transform:scale(1.08);
-}
-
-#noBtn{
-background:#666;
-color:white;
-position:absolute;
-left:55%;
-top:0;
+transform:scale(1.1);
 }
 
 .heart{
+
 position:fixed;
-top:-50px;
-animation:fall linear infinite;
+
+top:-20px;
+
 pointer-events:none;
+
+animation:fall linear infinite;
 }
 
 @keyframes fall{
+
 to{
 transform:translateY(110vh);
 }
@@ -133,75 +132,23 @@ transform:translateY(110vh);
 
 <div class="card">
 
-<h1>💍 Oii Sanchari ❤️</h1>
+<h1>❤️ Oii Sona ❤️</h1>
 
-<p class="subtitle">
-Terms & Conditions Apply 😌
-</p>
+<p class="message">
 
-<p class="text">
+Ekta chhoto proshno chilo... 🥺
 
-I'm still waiting for our first meeting...
+<br><br>
 
-At this point, I honestly deserve an award for patience.
-😌🏆
-
-The funny thing is, the moment I met you online,
-I started liking you.
-
-Not because of your looks.
-
-Not because of your body.
-
-Not because of any of those things.
-
-Honestly?
-
-I still don't know exactly why.
-
-Maybe it was your vibe.
-
-Maybe it was your way of talking.
-
-Maybe it was the way you slowly became the person I wanted to talk to every day.
-
-All I know is that somewhere between our conversations,
-my heart made a decision before my brain could even vote. 😅
-
-Now you've become my favorite notification,
-my favorite distraction,
-and occasionally the reason I smile at my phone like an idiot in public.
-
-And trust me, that's embarrassing. 😂
-
-So here's my question...
-
-Can you stay with me forever? ♾️
-
-Through the good days,
-the bad days,
-the lazy days,
-the overthinking days,
-
-and the days when I steal your food and still deny it. 😌
-
-Will you stay by my side and let us create a lifetime of memories together?
-
-❤️ Amar Bou Hoba? ❤️
+💍 Amar Bou Hoba? 💍
 
 </p>
-
-<div class="buttons">
 
 <button id="yesBtn">
+
 YES ❤️
-</button>
 
-<button id="noBtn">
-NO 😅
 </button>
-
-</div>
 
 </div>
 
@@ -209,17 +156,19 @@ NO 😅
 
 /* Floating Hearts */
 
-for(let i=0;i<35;i++){
+for(let i=0;i<60;i++){
 
 let heart=document.createElement("div");
 
 heart.className="heart";
+
 heart.innerHTML="❤️";
 
-heart.style.left=Math.random()*100+"vw";
+heart.style.left=
+Math.random()*100+"vw";
 
 heart.style.fontSize=
-(15+Math.random()*25)+"px";
+(15+Math.random()*30)+"px";
 
 heart.style.animation=
 "fall "+(3+Math.random()*6)+"s linear infinite";
@@ -227,65 +176,7 @@ heart.style.animation=
 document.body.appendChild(heart);
 }
 
-/* NO Button */
-
-const noBtn =
-document.getElementById("noBtn");
-
-const texts=[
-"NO 😅",
-"Think Again 😘",
-"Wrong Button 😂",
-"Nice Try 😜",
-"Impossible 😌",
-"Just Press YES ❤️"
-];
-
-let index=0;
-
-function moveButton(){
-
-const container =
-document.querySelector(".buttons");
-
-const rect =
-container.getBoundingClientRect();
-
-const maxX =
-rect.width - 170;
-
-const maxY =
-60;
-
-const x =
-Math.random()*maxX;
-
-const y =
-Math.random()*maxY;
-
-noBtn.style.left = x+"px";
-noBtn.style.top = y+"px";
-
-if(index < texts.length){
-
-noBtn.innerHTML =
-texts[index];
-
-index++;
-}
-}
-
-noBtn.addEventListener(
-"mouseover",
-moveButton
-);
-
-noBtn.addEventListener(
-"touchstart",
-moveButton
-);
-
-/* YES Button */
+/* YES Click */
 
 document
 .getElementById("yesBtn")
@@ -308,30 +199,33 @@ background:linear-gradient(
 ">
 
 <h1 style="
-font-size:70px;
+font-size:80px;
 color:#ff4f8b;
 ">
-🎉 SHE SAID YES 🎉
+🎉 YAYYYY 🎉
 </h1>
 
-<h2>
-❤️ Bipul ♾️ Sanchari ❤️
+<h2 style="
+font-size:40px;
+margin-top:20px;
+">
+❤️ Bipul + Sanchari ❤️
 </h2>
 
 <p style="
-font-size:24px;
-max-width:700px;
-padding:20px;
+font-size:28px;
+margin-top:30px;
 line-height:1.8;
+max-width:700px;
 ">
 
-Mission Accepted ✅
+Official Status Updated ✅
 
-Lifetime Partnership Activated ❤️
+From Today...
 
-Unlimited Love Unlocked ♾️
+Forever Together ♾️
 
-Forever Starts Here 💍❤️
+💍❤️🥰
 
 </p>
 
