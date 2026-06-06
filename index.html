@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,30 +11,35 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-height:100vh;
+min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
 background:linear-gradient(135deg,#ff9ecf,#ffd6e8,#fff5fa);
 overflow:hidden;
+padding:20px;
 }
 
 .card{
 
-width:90%;
-max-width:700px;
+position:relative;
 
-padding:50px;
+width:100%;
+max-width:800px;
+
+padding:50px 35px;
 
 text-align:center;
 
 background:rgba(255,255,255,.25);
 
-backdrop-filter:blur(15px);
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.3);
 
 border-radius:30px;
 
@@ -51,41 +56,66 @@ transform:translateY(0);
 }
 
 50%{
-transform:translateY(-12px);
+transform:translateY(-10px);
 }
 }
 
 h1{
 
-font-size:58px;
+font-size:clamp(2rem,5vw,4rem);
+
 color:#ff4f8b;
 
-margin-bottom:20px;
+margin-bottom:15px;
 
 text-shadow:
 0 0 20px rgba(255,79,139,.4);
 }
 
-.message{
+.subtitle{
 
-font-size:28px;
+font-size:clamp(1rem,3vw,1.4rem);
+
+color:#555;
+
+margin-bottom:30px;
+}
+
+.proposal{
+
+font-size:clamp(1.2rem,3vw,1.6rem);
 
 line-height:1.8;
 
 color:#444;
+
+margin-bottom:35px;
 }
 
-#yesBtn{
+.buttons{
 
-margin-top:35px;
+position:relative;
 
-padding:18px 45px;
+height:120px;
+}
 
-font-size:24px;
+#yesBtn,
+#noBtn{
+
+padding:16px 40px;
+
+font-size:22px;
 
 border:none;
 
 border-radius:50px;
+
+cursor:pointer;
+
+transition:.3s;
+}
+
+#yesBtn{
 
 background:linear-gradient(
 135deg,
@@ -95,16 +125,24 @@ background:linear-gradient(
 
 color:white;
 
-cursor:pointer;
-
 box-shadow:
-0 10px 30px rgba(255,79,139,.4);
-
-transition:.3s;
+0 10px 25px rgba(255,79,139,.4);
 }
 
 #yesBtn:hover{
-transform:scale(1.1);
+
+transform:scale(1.08);
+}
+
+#noBtn{
+
+position:absolute;
+
+left:55%;
+top:0;
+
+background:#666;
+color:white;
 }
 
 .heart{
@@ -134,21 +172,27 @@ transform:translateY(110vh);
 
 <h1>❤️ Oii Sona ❤️</h1>
 
-<p class="message">
+<p class="subtitle">
+One Small Question... 🥺
+</p>
 
-Ekta chhoto proshno chilo... 🥺
+<p class="proposal">
 
-<br><br>
-
-💍 Amar Bou Hoba? 💍
+Amar Bou Hoba? 💍❤️
 
 </p>
 
+<div class="buttons">
+
 <button id="yesBtn">
-
 YES ❤️
-
 </button>
+
+<button id="noBtn">
+NO 😅
+</button>
+
+</div>
 
 </div>
 
@@ -156,7 +200,7 @@ YES ❤️
 
 /* Floating Hearts */
 
-for(let i=0;i<60;i++){
+for(let i=0;i<40;i++){
 
 let heart=document.createElement("div");
 
@@ -168,7 +212,7 @@ heart.style.left=
 Math.random()*100+"vw";
 
 heart.style.fontSize=
-(15+Math.random()*30)+"px";
+(15+Math.random()*25)+"px";
 
 heart.style.animation=
 "fall "+(3+Math.random()*6)+"s linear infinite";
@@ -176,10 +220,66 @@ heart.style.animation=
 document.body.appendChild(heart);
 }
 
-/* YES Click */
+/* Funny NO Button */
 
-document
-.getElementById("yesBtn")
+const noBtn =
+document.getElementById("noBtn");
+
+const funnyTexts=[
+"NO 😅",
+"Think Again 😘",
+"Wrong Button 😂",
+"Nice Try 😜",
+"Impossible 😌",
+"Just Press YES ❤️"
+];
+
+let current=0;
+
+function escapeButton(){
+
+const area=
+document.querySelector(".buttons");
+
+const maxX=
+area.offsetWidth-180;
+
+const maxY=50;
+
+noBtn.style.left=
+Math.random()*maxX+"px";
+
+noBtn.style.top=
+Math.random()*maxY+"px";
+
+if(current<funnyTexts.length){
+
+noBtn.innerHTML=
+funnyTexts[current];
+
+current++;
+}
+}
+
+noBtn.addEventListener(
+"mouseover",
+escapeButton
+);
+
+noBtn.addEventListener(
+"touchstart",
+function(e){
+
+e.preventDefault();
+
+escapeButton();
+
+}
+);
+
+/* YES Button */
+
+document.getElementById("yesBtn")
 .onclick=function(){
 
 document.body.innerHTML=`
@@ -196,36 +296,34 @@ background:linear-gradient(
 #ff9ecf,
 #ffd6e8
 );
+padding:20px;
 ">
 
 <h1 style="
-font-size:80px;
+font-size:clamp(3rem,8vw,6rem);
 color:#ff4f8b;
 ">
-🎉 YAYYYY 🎉
+🎉 YAYYY 🎉
 </h1>
 
 <h2 style="
-font-size:40px;
-margin-top:20px;
+font-size:clamp(1.5rem,4vw,2.5rem);
+margin-top:15px;
 ">
-❤️ Bipul + Sanchari ❤️
+❤️ Forever Starts Here ❤️
 </h2>
 
 <p style="
-font-size:28px;
-margin-top:30px;
+font-size:clamp(1.2rem,3vw,1.8rem);
+margin-top:25px;
 line-height:1.8;
-max-width:700px;
 ">
 
 Official Status Updated ✅
 
-From Today...
+Amar Bou ❤️
 
-Forever Together ♾️
-
-💍❤️🥰
+♾️💍🥰
 
 </p>
 
