@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amar Bou Hoba? ❤️</title>
+<title>Oii Sanchari ❤️</title>
 
 <style>
 
@@ -26,11 +26,13 @@ background:linear-gradient(
 #fff0f6
 );
 overflow:hidden;
+padding:20px;
 }
 
 .card{
+position:relative;
 
-width:90%;
+width:100%;
 max-width:850px;
 
 padding:45px;
@@ -47,55 +49,29 @@ border-radius:30px;
 
 box-shadow:
 0 15px 35px rgba(255,79,139,.2);
-
-animation:float 4s ease-in-out infinite;
-}
-
-@keyframes float{
-
-0%,100%{
-transform:translateY(0);
-}
-
-50%{
-transform:translateY(-10px);
-}
-
 }
 
 h1{
-
 font-size:52px;
-
 color:#ff4f8b;
-
 margin-bottom:15px;
-
-text-shadow:
-0 0 15px rgba(255,79,139,.4);
-
 }
 
 .subtitle{
-
 font-size:18px;
-
 color:#ff4f8b;
-
-margin-bottom:30px;
+margin-bottom:25px;
 }
 
 .text{
-
 font-size:20px;
-
 line-height:1.9;
-
 color:#444;
 }
 
 .buttons{
-
+position:relative;
+height:120px;
 margin-top:35px;
 }
 
@@ -112,53 +88,42 @@ font-size:22px;
 
 cursor:pointer;
 
-margin:10px;
-
 transition:.3s;
 }
 
 #yesBtn{
-
 background:linear-gradient(
 135deg,
 #ff4f8b,
 #ff77a9
 );
-
 color:white;
-
-box-shadow:
-0 10px 25px rgba(255,79,139,.4);
+box-shadow:0 10px 25px rgba(255,79,139,.4);
 }
 
 #yesBtn:hover{
-
-transform:scale(1.1);
+transform:scale(1.08);
 }
 
 #noBtn{
-
 background:#666;
 color:white;
+position:absolute;
+left:55%;
+top:0;
 }
 
 .heart{
-
 position:fixed;
-
-color:#ff4f8b;
-
 top:-50px;
-
 animation:fall linear infinite;
+pointer-events:none;
 }
 
 @keyframes fall{
-
 to{
 transform:translateY(110vh);
 }
-
 }
 
 </style>
@@ -178,19 +143,17 @@ Terms & Conditions Apply 😌
 
 I'm still waiting for our first meeting...
 
-At this point,
-I honestly deserve an award for patience.
-🏆😌
+At this point, I honestly deserve an award for patience.
+😌🏆
 
-The funny thing is,
-the moment I met you online,
+The funny thing is, the moment I met you online,
 I started liking you.
 
 Not because of your looks.
 
 Not because of your body.
 
-Not because of anything superficial.
+Not because of any of those things.
 
 Honestly?
 
@@ -200,34 +163,29 @@ Maybe it was your vibe.
 
 Maybe it was your way of talking.
 
-Maybe it was how effortlessly you became
-the person I wanted to talk to every day.
+Maybe it was the way you slowly became the person I wanted to talk to every day.
+
+All I know is that somewhere between our conversations,
+my heart made a decision before my brain could even vote. 😅
 
 Now you've become my favorite notification,
-
 my favorite distraction,
+and occasionally the reason I smile at my phone like an idiot in public.
 
-and sometimes the reason
-I smile at my phone like an idiot in public.
+And trust me, that's embarrassing. 😂
 
-😂❤️
-
-So...
+So here's my question...
 
 Can you stay with me forever? ♾️
 
 Through the good days,
-
 the bad days,
-
 the lazy days,
-
 the overthinking days,
 
-and especially through the days
-when I steal your food and still say...
+and the days when I steal your food and still deny it. 😌
 
-"I didn't take anything." 😌
+Will you stay by my side and let us create a lifetime of memories together?
 
 ❤️ Amar Bou Hoba? ❤️
 
@@ -249,12 +207,13 @@ NO 😅
 
 <script>
 
-for(let i=0;i<40;i++){
+/* Floating Hearts */
+
+for(let i=0;i<35;i++){
 
 let heart=document.createElement("div");
 
 heart.className="heart";
-
 heart.innerHTML="❤️";
 
 heart.style.left=Math.random()*100+"vw";
@@ -268,7 +227,10 @@ heart.style.animation=
 document.body.appendChild(heart);
 }
 
-const noBtn=document.getElementById("noBtn");
+/* NO Button */
+
+const noBtn =
+document.getElementById("noBtn");
 
 const texts=[
 "NO 😅",
@@ -283,23 +245,31 @@ let index=0;
 
 function moveButton(){
 
-const maxX=
-window.innerWidth-180;
+const container =
+document.querySelector(".buttons");
 
-const maxY=
-window.innerHeight-80;
+const rect =
+container.getBoundingClientRect();
 
-noBtn.style.position="fixed";
+const maxX =
+rect.width - 170;
 
-noBtn.style.left=
-Math.random()*maxX+"px";
+const maxY =
+60;
 
-noBtn.style.top=
-Math.random()*maxY+"px";
+const x =
+Math.random()*maxX;
 
-if(index<texts.length){
+const y =
+Math.random()*maxY;
 
-noBtn.innerHTML=texts[index];
+noBtn.style.left = x+"px";
+noBtn.style.top = y+"px";
+
+if(index < texts.length){
+
+noBtn.innerHTML =
+texts[index];
 
 index++;
 }
@@ -315,7 +285,10 @@ noBtn.addEventListener(
 moveButton
 );
 
-document.getElementById("yesBtn")
+/* YES Button */
+
+document
+.getElementById("yesBtn")
 .onclick=function(){
 
 document.body.innerHTML=`
@@ -341,9 +314,7 @@ color:#ff4f8b;
 🎉 SHE SAID YES 🎉
 </h1>
 
-<h2 style="
-margin-top:15px;
-">
+<h2>
 ❤️ Bipul ♾️ Sanchari ❤️
 </h2>
 
@@ -359,6 +330,8 @@ Mission Accepted ✅
 Lifetime Partnership Activated ❤️
 
 Unlimited Love Unlocked ♾️
+
+Forever Starts Here 💍❤️
 
 </p>
 
