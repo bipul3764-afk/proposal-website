@@ -1,70 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amar Bou Hoba? ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(
+135deg,
+#ff9ecf,
+#ffd6e8,
+#fff0f6
+);
+overflow:hidden;
+}
+
+.card{
+
+width:90%;
+max-width:850px;
+
+padding:45px;
+
+text-align:center;
+
+background:rgba(255,255,255,.25);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.4);
+
+border-radius:30px;
+
+box-shadow:
+0 15px 35px rgba(255,79,139,.2);
+
+animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+}
+
+h1{
+
+font-size:52px;
+
+color:#ff4f8b;
+
+margin-bottom:15px;
+
+text-shadow:
+0 0 15px rgba(255,79,139,.4);
+
+}
+
+.subtitle{
+
+font-size:18px;
+
+color:#ff4f8b;
+
+margin-bottom:30px;
+}
+
+.text{
+
+font-size:20px;
+
+line-height:1.9;
+
+color:#444;
+}
+
+.buttons{
+
+margin-top:35px;
+}
+
+#yesBtn,
+#noBtn{
+
+padding:16px 38px;
+
+border:none;
+
+border-radius:50px;
+
+font-size:22px;
+
+cursor:pointer;
+
+margin:10px;
+
+transition:.3s;
+}
+
+#yesBtn{
+
+background:linear-gradient(
+135deg,
+#ff4f8b,
+#ff77a9
+);
+
+color:white;
+
+box-shadow:
+0 10px 25px rgba(255,79,139,.4);
+}
+
+#yesBtn:hover{
+
+transform:scale(1.1);
+}
+
+#noBtn{
+
+background:#666;
+color:white;
+}
+
+.heart{
+
+position:fixed;
+
+color:#ff4f8b;
+
+top:-50px;
+
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+
+to{
+transform:translateY(110vh);
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
 <div class="card">
 
-<h1>❤️ Oii Sanchari (Bou) ❤️</h1>
+<h1>💍 Oii Sanchari ❤️</h1>
 
-<p class="proposal-text">
+<p class="subtitle">
+Terms & Conditions Apply 😌
+</p>
+
+<p class="text">
 
 I'm still waiting for our first meeting...
 
-At this point, I honestly deserve an award for patience.
-😌🏆
+At this point,
+I honestly deserve an award for patience.
+🏆😌
 
-The funny thing is, the moment I met you online,
+The funny thing is,
+the moment I met you online,
 I started liking you.
 
 Not because of your looks.
+
 Not because of your body.
+
 Not because of anything superficial.
 
-Honestly, I still don't know exactly why.
+Honestly?
+
+I still don't know exactly why.
 
 Maybe it was your vibe.
 
-Maybe it was the way you talk.
+Maybe it was your way of talking.
 
-Maybe it was how effortlessly you became the person I wanted to talk to every single day.
+Maybe it was how effortlessly you became
+the person I wanted to talk to every day.
 
-All I know is that somewhere between our conversations,
-my heart made a decision long before my brain could even vote.
-😅
+Now you've become my favorite notification,
 
-You've become my favorite notification,
 my favorite distraction,
-and sometimes the reason I randomly smile at my phone like a complete idiot in public.
 
-And trust me...
-that's very embarrassing.
-😂
+and sometimes the reason
+I smile at my phone like an idiot in public.
 
-I haven't even met you in person yet,
-but somehow you already feel familiar,
-comfortable,
-and important.
+😂❤️
 
-That's rare.
-
-So here's my question...
-
-❤️
+So...
 
 Can you stay with me forever? ♾️
 
 Through the good days,
+
 the bad days,
+
 the lazy days,
+
 the overthinking days,
 
-and especially through the days when I steal your food and still confidently say...
+and especially through the days
+when I steal your food and still say...
 
 "I didn't take anything." 😌
 
-Will you laugh with me,
-annoy me,
-fight with me,
-forgive me,
-and create a lifetime of beautiful memories together?
-
-💍❤️
+❤️ Amar Bou Hoba? ❤️
 
 </p>
 
@@ -82,51 +247,30 @@ NO 😅
 
 </div>
 
-<style>
-
-.card{
-background:white;
-padding:40px;
-border-radius:25px;
-max-width:750px;
-margin:auto;
-text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,.15);
-}
-
-.proposal-text{
-font-size:20px;
-line-height:1.9;
-color:#444;
-}
-
-#yesBtn,
-#noBtn{
-padding:15px 35px;
-font-size:20px;
-border:none;
-border-radius:40px;
-cursor:pointer;
-margin:10px;
-}
-
-#yesBtn{
-background:#ff4f8b;
-color:white;
-}
-
-#noBtn{
-background:#777;
-color:white;
-}
-
-</style>
-
 <script>
 
-const noBtn = document.getElementById("noBtn");
+for(let i=0;i<40;i++){
 
-const texts = [
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=
+(15+Math.random()*25)+"px";
+
+heart.style.animation=
+"fall "+(3+Math.random()*6)+"s linear infinite";
+
+document.body.appendChild(heart);
+}
+
+const noBtn=document.getElementById("noBtn");
+
+const texts=[
 "NO 😅",
 "Think Again 😘",
 "Wrong Button 😂",
@@ -135,29 +279,46 @@ const texts = [
 "Just Press YES ❤️"
 ];
 
-let current = 0;
+let index=0;
 
 function moveButton(){
 
-const maxX = window.innerWidth - 160;
-const maxY = window.innerHeight - 80;
+const maxX=
+window.innerWidth-180;
 
-noBtn.style.position = "fixed";
-noBtn.style.left = Math.random() * maxX + "px";
-noBtn.style.top = Math.random() * maxY + "px";
+const maxY=
+window.innerHeight-80;
 
-if(current < texts.length){
-noBtn.innerHTML = texts[current];
-current++;
+noBtn.style.position="fixed";
+
+noBtn.style.left=
+Math.random()*maxX+"px";
+
+noBtn.style.top=
+Math.random()*maxY+"px";
+
+if(index<texts.length){
+
+noBtn.innerHTML=texts[index];
+
+index++;
 }
 }
 
-noBtn.addEventListener("mouseover", moveButton);
-noBtn.addEventListener("touchstart", moveButton);
+noBtn.addEventListener(
+"mouseover",
+moveButton
+);
 
-document.getElementById("yesBtn").onclick = function(){
+noBtn.addEventListener(
+"touchstart",
+moveButton
+);
 
-document.body.innerHTML = `
+document.getElementById("yesBtn")
+.onclick=function(){
+
+document.body.innerHTML=`
 
 <div style="
 height:100vh;
@@ -166,17 +327,23 @@ justify-content:center;
 align-items:center;
 flex-direction:column;
 text-align:center;
-background:linear-gradient(135deg,#ff9ecf,#ffd6e8);
+background:linear-gradient(
+135deg,
+#ff9ecf,
+#ffd6e8
+);
 ">
 
 <h1 style="
-font-size:65px;
+font-size:70px;
 color:#ff4f8b;
 ">
 🎉 SHE SAID YES 🎉
 </h1>
 
-<h2>
+<h2 style="
+margin-top:15px;
+">
 ❤️ Bipul ♾️ Sanchari ❤️
 </h2>
 
@@ -187,18 +354,20 @@ padding:20px;
 line-height:1.8;
 ">
 
-This is not the end of our story...
+Mission Accepted ✅
 
-It's the beginning of our beautiful forever.
+Lifetime Partnership Activated ❤️
 
-❤️♾️💍
+Unlimited Love Unlocked ♾️
 
 </p>
 
 </div>
 
 `;
-
 };
 
 </script>
+
+</body>
+</html>
